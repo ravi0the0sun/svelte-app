@@ -1,30 +1,33 @@
 <script>
-	export let name;
+	const num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+	const signs = ['+','-','/','*'];
+	let sign;
+	let number = [];
+	let output = 0
+
+	function assign(sign){
+		this.sign = sign
+	}
+	
+	function handleClick() {
+		switch(sign) {
+			case('+') : output = number[0] + number[1]; break;
+			case('-') : output = number[0] - number[1]; break;
+			case('*') : output = number[0] * number[1]; break;
+			case('/') : output = number[0] / number[1]; break;
+		}
+	}
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	{#each num as i}
+		<button class="btn">{i}</button>
+	{/each}
+	{#each signs as sign}
+		<button class="btn" >{sign}</button>
+	{/each}
+	<button class="btn" on:click={handleClick} >=</button>
+	<p>{output}</p>
 </main>
 
-<style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
-</style>
+<style></style>
