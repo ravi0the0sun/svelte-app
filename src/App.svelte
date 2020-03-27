@@ -3,19 +3,21 @@
 	const num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 	const signs = ['+','-','/','*'];
 	let sign;
-	let number1;
-	let number2;
-	let output = 0
-
+	let number1 = 0;
+	let number2 = 0;
+	let output = 0;
+	console.log(output, number1, number2, sign);
 
 	function handle() {
+		console.log(output, number1, number2, sign);
+
 		switch(sign) {
 			case('+') : output = number1 + number2; break;
 			case('-') : output = number1 - number2; break;
 			case('*') : output = number1 * number2; break;
 			case('/') : output = number1 / number2; break;
 		};
-		console.log(output, number1, number2, sign);
+		
 	}
 </script>
 
@@ -29,7 +31,7 @@
 	<select bind:value={number2}>{#each num as number2}
 		<option>{number2}</option>
 	{/each}</select>
-	<button onclick={handle}>=</button> {output}
+	<button on:click={handle}>=</button> {output}
 	
 </main>
 
