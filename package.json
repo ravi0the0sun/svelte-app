@@ -1,0 +1,38 @@
+{
+  "name": "tsc-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon server/server.ts",
+    "start": "node -r esm dist/server.js",
+    "build": "npm install --prefix client && npm run build --prefix client",
+    "client": "npm run dev --prefix client",
+    "serverBuild": "tsc -p .",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^15.2.0",
+    "mongoose": "^5.9.21",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.6",
+    "@types/express": "^4.17.6",
+    "@types/mongoose": "^5.7.29",
+    "@types/morgan": "^1.9.1",
+    "@types/node": "^14.0.14",
+    "concurrently": "^5.2.0",
+    "nodemon": "^2.0.4",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.6"
+  }
+}
